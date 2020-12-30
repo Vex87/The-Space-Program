@@ -1,7 +1,7 @@
 local ServerStorage: ServerStorage = game:GetService("ServerStorage")
 local createInstance = require(ServerStorage.Modules.Core.CreateInstance)
 
-return function(rocket: Model, part: Model): nil
+return function(rocket: Model, part: Part): nil
     local ownerValue: ObjectValue = createInstance("ObjectValue", "Owner", part)
     local ownerClickDetector: ClickDetector = createInstance("ClickDetector", "OwnerClickDetector", part)
     ownerClickDetector.MouseClick:Connect(function(player: Player): nil
