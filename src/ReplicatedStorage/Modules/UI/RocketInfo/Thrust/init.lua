@@ -26,7 +26,7 @@ return function(): Frame
     }
 
     local children: CHILDREN_TEMPLATE = {
-        UICorner = UICornerUI(Vector2.new(0, 5)),
+        UICorner = UICornerUI(UDim.new(0, 5)),
         Fill = fillUI(),
         Amount = amountUI(),
     }

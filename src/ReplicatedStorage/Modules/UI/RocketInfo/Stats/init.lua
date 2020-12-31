@@ -37,5 +37,5 @@ return function(): Frame
         Velocity = templateUI("Velocity", "Velocity: <b>0 studs/sec</b>"),
     }
 
-    return createElement("Frame", children, properties)
+    return createElement("Frame", properties, children)
 end

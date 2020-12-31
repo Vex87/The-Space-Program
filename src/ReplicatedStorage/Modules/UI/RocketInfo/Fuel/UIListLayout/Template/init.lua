@@ -14,7 +14,7 @@ type CHILDREN_TEMPLATE = {
 local ReplicatedStorage: ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local createElement: any = require(ReplicatedStorage.Modules.Core.CreateElement)
-local Configuration: any = require(ReplicatedStorage.Modules.Core.Configuration.Rocket)
+local Configuration: any = require(ReplicatedStorage.Modules.Configuration.Rocket)
 local UICornerUI: any = require(ReplicatedStorage.Modules.UI.UICorner)
 local fillUI: any = require(script.Fill)
 local amountUI: any = require(script.Amount)
@@ -29,7 +29,7 @@ return function(): Frame
     }
 
     local children: CHILDREN_TEMPLATE = {
-        UICorner = UICornerUI(Vector2.new(0, 5)),
+        UICorner = UICornerUI(UDim.new(0, 5)),
         Fill = fillUI(),
         Amount = amountUI(),
     }

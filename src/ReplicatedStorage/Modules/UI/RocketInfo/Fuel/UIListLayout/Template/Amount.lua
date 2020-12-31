@@ -18,7 +18,7 @@ local ReplicatedStorage: ReplicatedStorage = game:GetService("ReplicatedStorage"
 
 local createElement: any = require(ReplicatedStorage.Modules.Core.CreateElement)
 local Configuration: any = require(ReplicatedStorage.Modules.Configuration.Rocket)
-local UICornerUI: any = require(ReplicatedStorage.Modules.UI.Rocket)
+local UICornerUI: any = require(ReplicatedStorage.Modules.UI.UICorner)
 
 return function(): TextLabel
     local properties: PROPERTIES_TEMPLATE = {
@@ -34,7 +34,7 @@ return function(): TextLabel
     }
 
     local children: CHILDREN_TEMPLATE = {
-        UICorner = UICornerUI(0, 5),
+        UICorner = UICornerUI(UDim.new(0, 5)),
     }
 
     return createElement("TextLabel", properties, children)

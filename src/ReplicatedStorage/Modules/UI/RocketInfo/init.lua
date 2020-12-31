@@ -1,5 +1,5 @@
 type PROPERTIES_TEMPLATE = {
-    IgnoreGuilnset: boolean,
+    IgnoreGuiInset: boolean,
     Name: string,
 }
 
@@ -18,7 +18,7 @@ local statsUI: any = require(script.Stats)
 
 return function(): ScreenGui
     local properties: PROPERTIES_TEMPLATE = {
-        IgnoreGuilnset = true,
+        IgnoreGuiInset = true,
         Name = "RocketInfo",
     }
 

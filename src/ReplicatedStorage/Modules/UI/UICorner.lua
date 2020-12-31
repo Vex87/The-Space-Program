@@ -1,11 +1,11 @@
 type PROPERTIES_TEMPLATE = {
-    CornerRadius: Vector2,
+    CornerRadius: UDim,
 }
 
 local ReplicatedStorage: ReplicatedStorage = game:GetService("ReplicatedStorage")
 local createElement: any = require(ReplicatedStorage.Modules.Core.CreateElement)
 
-return function(cornerRadius: Vector2): UICorner
+return function(cornerRadius: UDim): UICorner
     local properties: PROPERTIES_TEPLATE = {
         CornerRadius = cornerRadius,
     }
