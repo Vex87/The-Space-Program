@@ -11,6 +11,7 @@ type CHILDREN_TEMPLATE = {
 
 local ReplicatedStorage: ReplicatedStorage = game:GetService("ReplicatedStorage")
 
+local Configuration: any = require(ReplicatedStorage.Modules.Configuration.Rocket)
 local createElement: any = require(ReplicatedStorage.Modules.Core.CreateElement)
 local UIListLayoutUI: any = require(script.UIListLayout)
 
@@ -18,7 +19,7 @@ return function(): Frame
     local properties: PROPERTIES_TEMPLATE = {
         BackgroundTransparency = 1,
         Name = "Fuel",
-        Position = UDim2.new(0, 10, 1, -35),
+        Position = Configuration.UI.Fuel.HidePosition,
         Size = UDim2.new(0, 300, 0, 25)
     }
 

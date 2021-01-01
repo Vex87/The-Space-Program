@@ -1,27 +1,41 @@
+local module: {} = {}
+
 local Players: Players = game:GetService("Players")
 local ReplicatedStorage: ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Configuration: any = require(ReplicatedStorage.Modules.Configuration.Rocket)
 
 local player: Player = Players.LocalPlayer
-local UI: ScreenGui = player.PlayerGui.RocketInfo
 
-local function updateUI(fuelUI: Frame, amount: number)
-    local fuelPercent: number = math.round(amount / Configuration.Stats.MaxFuel * 100)
-    fuelUI.Amount.Text = "<b>" .. tostring(fuelPercent) .. "%</b>"
+local function updateUI(fuelUI: Frame, amount: number): nil
+    local fuelPercent: number = amount / Configuration.Stats.MaxFuel
+    fuelUI.Amount.Text = "<b>" .. tostring(math.round(fuelPercent * 100)) .. "%</b>"
+    fuelUI.Fill:TweenSize(UDim2.new(fuelPercent, 0, 1, 0), table.unpack(Configuration.UI.Fuel.TemplateTweenInfo))
 end
 
-local function createUI(part: Part): Frame
+local function createUI(fuelTank: Part): Frame
+    local UI: ScreenGui = player.PlayerGui:WaitForChild("RocketInfo")
     local newFuelUI: Frame = UI.Fuel.UIListLayout.Template:Clone()
-    updateUI(newFuelUI, part.FuelAmount.Value)
     newFuelUI.Parent = UI.Fuel
+    updateUI(newFuelUI, fuelTank.FuelAmount.Value)
     return newFuelUI
 end
 
-return function(rocket: Model, part: Part): nil
-    local newFuelUI = createUI(part)
+function module.clearUI(): nil
+    local UI: ScreenGui = player.PlayerGui:WaitForChild("RocketInfo")
+    for _: nil, fuelFrame: Frame in pairs(UI.Fuel:GetChildren()) do
+        if fuelFrame:IsA("Frame") then
+            fuelFrame:Destroy()
+        end
+    end
+end
 
-    part.FuelAmount.Changed:Connect(function(newValue)
+function module.new(rocket: Model, fuelTank: Part): nil
+    local newFuelUI = createUI(fuelTank)
+
+    fuelTank.FuelAmount.Changed:Connect(function(newValue)
         updateUI(newFuelUI, newValue)
     end)
 end
+
+return module

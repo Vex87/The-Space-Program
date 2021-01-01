@@ -25,7 +25,7 @@ return function(): TextLabel
         Font = Enum.Font.SciFi,
         RichText = true,
         Text = "<b>0%</b>",
-        TextColor3 = Configuration.UI.LightColor,
+        TextColor3 = Configuration.UI.Colors.Light,
         TextSize = 16,
         TextWrapped = true,
     }

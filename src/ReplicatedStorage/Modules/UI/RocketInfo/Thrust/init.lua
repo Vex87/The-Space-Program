@@ -1,4 +1,5 @@
 type PROPERTIES_TEMPLATE = {
+    AnchorPoint: Vector2,
     BackgroundColor3: Color3.fromRGB,
     Name: string,
     Position: UDim2,
@@ -19,9 +20,10 @@ local amountUI: any = require(script.Amount)
 
 return function(): Frame
     local properties: PROPERTIES_TEMPLATE = {
-        BackgroundColor3 = Configuration.UI.DarkColor,
+        AnchorPoint = Vector2.new(0, 0.5),
+        BackgroundColor3 = Configuration.UI.Colors.Dark,
         Name = "Thrust",
-        Position = UDim2.new(1, -50, 1, -480),
+        Position = Configuration.UI.Thrust.HidePosition,
         Size = UDim2.new(0, 40, 0, 300),
     }
 

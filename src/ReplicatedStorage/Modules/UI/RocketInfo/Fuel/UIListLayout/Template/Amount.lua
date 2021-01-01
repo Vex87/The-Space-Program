@@ -22,7 +22,7 @@ local UICornerUI: any = require(ReplicatedStorage.Modules.UI.UICorner)
 
 return function(): TextLabel
     local properties: PROPERTIES_TEMPLATE = {
-        BackgroundColor3 = Configuration.UI.DarkColor,
+        BackgroundColor3 = Configuration.UI.Colors.Dark,
         Name = "Amount",
         Position = UDim2.new(1, 5, 0, 0),
         Size = UDim2.new(0, 40, 0, 25),

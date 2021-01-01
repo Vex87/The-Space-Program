@@ -21,7 +21,7 @@ local amountUI: any = require(script.Amount)
 
 return function(): Frame
     local properties: PROPERTIES_TEMPLATE = {
-        BackgroundColor3 = Configuration.UI.DarkColor,
+        BackgroundColor3 = Configuration.UI.Colors.Dark,
         BorderSizePixel = 0,
         Name = "Template",
         Position = UDim2.new(0, 10, 0, 70),

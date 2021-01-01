@@ -17,7 +17,7 @@ local UICornerUI: any = require(ReplicatedStorage.Modules.UI.UICorner)
 
 return function(): Frame
     local properties: PROPERTIES_TEMPLATE = {
-        BackgroundColor3 = Configuration.UI.LightColor,
+        BackgroundColor3 = Configuration.UI.Colors.Light,
         BorderSizePixel = 0,
         Name = "Fill",
         Size = UDim2.new(0, 0, 1, 0),
